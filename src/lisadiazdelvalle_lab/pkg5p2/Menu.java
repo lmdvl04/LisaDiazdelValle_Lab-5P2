@@ -6,7 +6,10 @@ package lisadiazdelvalle_lab.pkg5p2;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -54,6 +57,14 @@ public class Menu extends javax.swing.JFrame {
         TF_Vida = new javax.swing.JTextField();
         JB_AgregarP = new javax.swing.JButton();
         JB_Atras = new javax.swing.JButton();
+        Listar = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JT_Personajes = new javax.swing.JTree();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -222,6 +233,76 @@ public class Menu extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+
+        jLabel6.setFont(new java.awt.Font("OCR A Extended", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel6.setText("Listado de Personajes");
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personajes");
+        JT_Personajes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(JT_Personajes);
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        jButton4.setBackground(new java.awt.Color(255, 51, 51));
+        jButton4.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jButton4.setText("Atras");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(116, 116, 116))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(24, 24, 24))
+        );
+
+        javax.swing.GroupLayout ListarLayout = new javax.swing.GroupLayout(Listar.getContentPane());
+        Listar.getContentPane().setLayout(ListarLayout);
+        ListarLayout.setHorizontalGroup(
+            ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ListarLayout.setVerticalGroup(
+            ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
@@ -234,10 +315,20 @@ public class Menu extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         jButton1.setText("Agregar Personajes");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         jButton2.setText("Listado de Personajes");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("OCR A Extended", 0, 14)); // NOI18N
         jButton3.setText("Simulacion de Batalla");
@@ -289,11 +380,13 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AtrasActionPerformed
-        // TODO add your handling code here:
+        Agregar.setVisible(false);
+        this.setVisible(true);
+
     }//GEN-LAST:event_JB_AtrasActionPerformed
 
     private void TF_DebilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DebilidadActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_TF_DebilidadActionPerformed
 
     private void JB_AgregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AgregarPActionPerformed
@@ -306,11 +399,44 @@ public class Menu extends javax.swing.JFrame {
             TF_Mental.setText("");
             TF_Nombre.setText("");
             TF_Vida.setText("");
+            TF_Poder.setText("");
             JOptionPane.showMessageDialog(this, "Personaje agregado exitosamente");
         } catch (Exception e) {
         }
 
+        DefaultTreeModel modelo = (DefaultTreeModel) JT_Personajes.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        DefaultMutableTreeNode nodoMundo;
+        DefaultMutableTreeNode nodoNombre;
+        // nodoPersonaje = new DefaultMutableTreeNode(new Personajes (TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText()))));
+        nodoMundo = new DefaultMutableTreeNode(CB_Mundo.getSelectedItem().toString());
+        nodoNombre = new DefaultMutableTreeNode (TF_Nombre.getText());
+        nodoMundo.add(nodoNombre);
+        raiz.add(nodoMundo);
+        modelo.reload();
+        
     }//GEN-LAST:event_JB_AgregarPActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        Agregar.pack();
+        Agregar.setLocationRelativeTo(this);
+        Agregar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        Agregar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Listar.setVisible(false);
+        this.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          this.setVisible(false);
+        Listar.pack();
+        Listar.setLocationRelativeTo(this);
+        Listar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        Listar.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,6 +479,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_Mundo;
     private javax.swing.JButton JB_AgregarP;
     private javax.swing.JButton JB_Atras;
+    private javax.swing.JTree JT_Personajes;
+    private javax.swing.JFrame Listar;
     private javax.swing.JTextField TF_Debilidad;
     private javax.swing.JTextField TF_Fisica;
     private javax.swing.JTextField TF_Fuerza;
@@ -363,6 +491,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -373,7 +502,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
