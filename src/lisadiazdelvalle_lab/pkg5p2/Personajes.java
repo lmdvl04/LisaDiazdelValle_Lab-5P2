@@ -9,7 +9,8 @@ package lisadiazdelvalle_lab.pkg5p2;
  * @author HTS
  */
 public class Personajes {
-    private String nombre,universo,poder, debilidad;
+
+    private String nombre, universo, poder, debilidad;
     private int fuerza, agilidadFisica, agilidadMental, vida;
 
     public Personajes() {
@@ -93,13 +94,12 @@ public class Personajes {
     @Override
     public String toString() {
         return nombre;
-    }
-    public String Stringnombre(){
-                return  nombre+"\n" +"  Poder: " + poder + "\n  Debilidad: " + debilidad + "\n  Fuerza: " + fuerza + "\n  Agilidad Fisica: " + agilidadFisica + "\n  Agilidad Mental: " + agilidadMental + "\n  Vida:" + vida+"\n";
 
-        
     }
-    
-    
-    
+
+    public String Stringnombre() {
+        return nombre + "\n" + "  Poder-> " + poder + "\n  Debilidad-> " + debilidad + "\n  Fuerza-> " + fuerza + "\n  Agilidad Fisica-> " + agilidadFisica + "\n  Agilidad Mental-> " + agilidadMental + "\n  Vida->" + vida + "\n";
+
+    }
+
 }

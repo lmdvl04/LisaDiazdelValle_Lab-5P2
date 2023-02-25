@@ -9,6 +9,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -302,15 +303,8 @@ public class Menu extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(203, 203, 203))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(JB_AtrasListado))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,24 +313,30 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addComponent(JT_Nombree, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(32, 32, 32))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(JB_AtrasListado)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(JT_Nombree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(JB_AtrasListado)
-                .addGap(24, 24, 24))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ListarLayout = new javax.swing.GroupLayout(Listar.getContentPane());
@@ -623,6 +623,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JB_AtrasListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AtrasListadoActionPerformed
+        jList1.removeAll();
+
         Listar.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_JB_AtrasListadoActionPerformed
@@ -663,27 +665,27 @@ public class Menu extends javax.swing.JFrame {
             personaje.add(p);
             DefaultTreeModel modelo = (DefaultTreeModel) JT_Personajes.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-           // DefaultMutableTreeNode nodoMundo;
+            // DefaultMutableTreeNode nodoMundo;
             DefaultMutableTreeNode nodoNombre;
             // nodoPersonaje = new DefaultMutableTreeNode(new Personajes (TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText()))));
             //nodoMundo = new DefaultMutableTreeNode(CB_Mundo.getSelectedItem().toString());
-             nodoNombre = new DefaultMutableTreeNode(p);
-            switch(CB_Mundo.getSelectedItem().toString()){
+            nodoNombre = new DefaultMutableTreeNode(p);
+            switch (CB_Mundo.getSelectedItem().toString()) {
                 case "DC":
-                    ((DefaultMutableTreeNode)raiz.getChildAt(0)).add(nodoNombre);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(1)).add(nodoNombre);
                     break;
                 case "Marvel":
-                    ((DefaultMutableTreeNode)raiz.getChildAt(1)).add(nodoNombre);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(0)).add(nodoNombre);
                     break;
                 case "Capcom":
-                    ((DefaultMutableTreeNode)raiz.getChildAt(2)).add(nodoNombre);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(3)).add(nodoNombre);
                 case "MK":
-                    ((DefaultMutableTreeNode)raiz.getChildAt(3)).add(nodoNombre);
+                    ((DefaultMutableTreeNode) raiz.getChildAt(2)).add(nodoNombre);
                     break;
             }
-           
-          //  nodoMundo.add(nodoNombre);
-           // raiz.add(nodoMundo);
+
+            //  nodoMundo.add(nodoNombre);
+            // raiz.add(nodoMundo);
             modelo.reload();
             TF_Debilidad.setText("");
             TF_Fisica.setText("");
@@ -709,43 +711,66 @@ public class Menu extends javax.swing.JFrame {
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
             if (nodo_seleccionado.getUserObject() instanceof Personajes) {
                 selectedPersonaje = (Personajes) nodo_seleccionado.getUserObject();
-                
+
                 PP_Jtree.show(evt.getComponent(), evt.getX(), evt.getY());
             } else {
-                DefaultListModel modelo = (DefaultListModel) jList1.getModel();
             }
         }
+//                try {
+//
+//            //limpiar tabla
+//            tabla.setModel(new javax.swing.table.DefaultTableModel(
+//                    new Object[][]{},
+//                    new String[]{
+//                        "Marca", "Modelo", "Fecha", "Color", "Tipo", "Millas", "Camara"
+//                    }
+//            ));
+//
+//            // TODO add your handling code here:
+//            for (Datos d : dato) {
+//                Object[] row = {d.getMarca(), d.getModelo(), d.getFecha(), d.getColor(), d.getTipo(), d.getMillas(), d.getCamara()};
+//                DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
+//                modelo.addRow(row);
+//                Tabla.setModel(modelo);
+//            }
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//            }
+//        }
 
 
     }//GEN-LAST:event_JT_PersonajesMouseClicked
 
     private void JM_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ListarActionPerformed
         try {
-           if (nodo_seleccionado.getUserObject() instanceof Personajes) {
-            selectedPersonaje = (Personajes) nodo_seleccionado.getUserObject();
-            DefaultListModel m = (DefaultListModel) jList1.getModel();
+            if (nodo_seleccionado.getUserObject() instanceof Personajes) {
+                selectedPersonaje = (Personajes) nodo_seleccionado.getUserObject();
+                DefaultListModel m = (DefaultListModel) jList1.getModel();
 
-            JT_Nombree.setText(selectedPersonaje.getNombre());
-            m.addElement(selectedPersonaje.getPoder());
-            m.addElement(selectedPersonaje.getFuerza());
-            m.addElement(selectedPersonaje.getDebilidad());
-            m.addElement(selectedPersonaje.getAgilidadFisica());
-            m.addElement(selectedPersonaje.getAgilidadMental());
-            m.addElement(selectedPersonaje.getVida());
-            m.addElement(selectedPersonaje.getUniverso());
-            jList1.setModel(m);
+                JT_Nombree.setText(selectedPersonaje.getNombre());
+                m.addElement("Universo -> " + selectedPersonaje.getUniverso());
+                m.addElement("Poder -> " + selectedPersonaje.getPoder());
+                m.addElement("Fuerza -> " + selectedPersonaje.getFuerza());
+                m.addElement("Debilidad -> " + selectedPersonaje.getDebilidad());
+                m.addElement("Agilidad Fisica -> " + selectedPersonaje.getAgilidadFisica());
+                m.addElement("Agilidad Mental -> " + selectedPersonaje.getAgilidadMental());
+                m.addElement("Vida -> " + selectedPersonaje.getVida());
 
-        } 
+                jList1.setModel(m);
+
+            }
         } catch (Exception e) {
-              e.printStackTrace();
+            e.printStackTrace();
         }
-        
+
     }//GEN-LAST:event_JM_ListarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
-      
+
     }//GEN-LAST:event_EliminarActionPerformed
 
+   
     /**
      * @param args the command line arguments
      */
