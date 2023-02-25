@@ -6,6 +6,7 @@ package lisadiazdelvalle_lab.pkg5p2;
 
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -56,7 +57,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         TF_Vida = new javax.swing.JTextField();
         JB_AgregarP = new javax.swing.JButton();
-        JB_Atras = new javax.swing.JButton();
+        JB_AtrasPersonaje = new javax.swing.JButton();
         Listar = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -64,7 +65,31 @@ public class Menu extends javax.swing.JFrame {
         JT_Personajes = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jButton4 = new javax.swing.JButton();
+        JB_AtrasListado = new javax.swing.JButton();
+        JT_Nombree = new javax.swing.JTextField();
+        PP_Jtree = new javax.swing.JPopupMenu();
+        modificar = new javax.swing.JMenuItem();
+        Eliminar = new javax.swing.JMenuItem();
+        JM_Listar = new javax.swing.JMenuItem();
+        JD_Modificar = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        CB_EditMundo = new javax.swing.JComboBox<>();
+        TF_EditFuerza = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        TF_EditFisica = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        TF_EditMental = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        TF_EditVida = new javax.swing.JTextField();
+        TF_EditPoder1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        TF_EditDebilidad1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        TF_EditNombre = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -120,18 +145,23 @@ public class Menu extends javax.swing.JFrame {
         JB_AgregarP.setBackground(new java.awt.Color(255, 51, 51));
         JB_AgregarP.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         JB_AgregarP.setText("Agregar");
+        JB_AgregarP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_AgregarPMouseClicked(evt);
+            }
+        });
         JB_AgregarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_AgregarPActionPerformed(evt);
             }
         });
 
-        JB_Atras.setBackground(new java.awt.Color(255, 51, 51));
-        JB_Atras.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        JB_Atras.setText("Atras");
-        JB_Atras.addActionListener(new java.awt.event.ActionListener() {
+        JB_AtrasPersonaje.setBackground(new java.awt.Color(255, 51, 51));
+        JB_AtrasPersonaje.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        JB_AtrasPersonaje.setText("Atras");
+        JB_AtrasPersonaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JB_AtrasActionPerformed(evt);
+                JB_AtrasPersonajeActionPerformed(evt);
             }
         });
 
@@ -173,7 +203,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(111, 111, 111))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(JB_Atras, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JB_AtrasPersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(JB_AgregarP)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -218,7 +248,7 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JB_AgregarP)
-                    .addComponent(JB_Atras))
+                    .addComponent(JB_AtrasPersonaje))
                 .addGap(30, 30, 30))
         );
 
@@ -240,22 +270,31 @@ public class Menu extends javax.swing.JFrame {
         jLabel6.setText("Listado de Personajes");
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personajes");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Marvel");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("DC");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("MK");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Capcom");
+        treeNode1.add(treeNode2);
         JT_Personajes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        JT_Personajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JT_PersonajesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JT_Personajes);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        jList1.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jList1);
 
-        jButton4.setBackground(new java.awt.Color(255, 51, 51));
-        jButton4.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
-        jButton4.setText("Atras");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JB_AtrasListado.setBackground(new java.awt.Color(255, 51, 51));
+        JB_AtrasListado.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        JB_AtrasListado.setText("Atras");
+        JB_AtrasListado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JB_AtrasListadoActionPerformed(evt);
             }
         });
 
@@ -264,31 +303,39 @@ public class Menu extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(229, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(116, 116, 116))
+                .addGap(203, 203, 203))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(jButton4)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(JB_AtrasListado))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(JT_Nombree, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(JT_Nombree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(JB_AtrasListado)
                 .addGap(24, 24, 24))
         );
 
@@ -301,6 +348,179 @@ public class Menu extends javax.swing.JFrame {
         ListarLayout.setVerticalGroup(
             ListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        PP_Jtree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PP_JtreeMouseClicked(evt);
+            }
+        });
+
+        modificar.setText("Modificar");
+        modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarMouseClicked(evt);
+            }
+        });
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
+        PP_Jtree.add(modificar);
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        PP_Jtree.add(Eliminar);
+
+        JM_Listar.setText("Listar");
+        JM_Listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JM_ListarActionPerformed(evt);
+            }
+        });
+        PP_Jtree.add(JM_Listar);
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+
+        CB_EditMundo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "MK" }));
+
+        jLabel7.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel7.setText("Poder");
+
+        jLabel16.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel16.setText("Agilidad Fisica");
+
+        jLabel17.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel17.setText("Agilidad Mental");
+
+        jLabel18.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel18.setText("Puntos de Vida");
+
+        jLabel19.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel19.setText("Debilidad");
+
+        jLabel8.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel8.setText("Mundo");
+
+        TF_EditDebilidad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TF_EditDebilidad1ActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel9.setText("Nombre");
+
+        jLabel20.setFont(new java.awt.Font("OCR A Extended", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel20.setText("Fuerza");
+
+        jLabel10.setFont(new java.awt.Font("OCR A Extended", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel10.setText("Agregar Personaje");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 596, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(95, 95, 95)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TF_EditNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(58, 58, 58)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CB_EditMundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TF_EditPoder1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TF_EditFuerza, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TF_EditMental, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(24, 24, 24)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(TF_EditVida, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TF_EditDebilidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TF_EditFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(74, 74, 74)))
+                    .addContainerGap(96, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(45, 45, 45)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(jLabel8))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TF_EditNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CB_EditMundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(12, 12, 12)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19)
+                        .addComponent(jLabel7))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TF_EditPoder1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_EditDebilidad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel20)
+                        .addComponent(jLabel16))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TF_EditFuerza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_EditFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(jLabel18))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TF_EditMental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TF_EditVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(45, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout JD_ModificarLayout = new javax.swing.GroupLayout(JD_Modificar.getContentPane());
+        JD_Modificar.getContentPane().setLayout(JD_ModificarLayout);
+        JD_ModificarLayout.setHorizontalGroup(
+            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        JD_ModificarLayout.setVerticalGroup(
+            JD_ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -379,11 +599,11 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JB_AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AtrasActionPerformed
+    private void JB_AtrasPersonajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AtrasPersonajeActionPerformed
         Agregar.setVisible(false);
         this.setVisible(true);
 
-    }//GEN-LAST:event_JB_AtrasActionPerformed
+    }//GEN-LAST:event_JB_AtrasPersonajeActionPerformed
 
     private void TF_DebilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_DebilidadActionPerformed
 
@@ -391,30 +611,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void JB_AgregarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AgregarPActionPerformed
 
-        try {
-            personaje.add(new Personajes(TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText()))));
-            TF_Debilidad.setText("");
-            TF_Fisica.setText("");
-            TF_Fuerza.setText("");
-            TF_Mental.setText("");
-            TF_Nombre.setText("");
-            TF_Vida.setText("");
-            TF_Poder.setText("");
-            JOptionPane.showMessageDialog(this, "Personaje agregado exitosamente");
-        } catch (Exception e) {
-        }
 
-        DefaultTreeModel modelo = (DefaultTreeModel) JT_Personajes.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-        DefaultMutableTreeNode nodoMundo;
-        DefaultMutableTreeNode nodoNombre;
-        // nodoPersonaje = new DefaultMutableTreeNode(new Personajes (TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText()))));
-        nodoMundo = new DefaultMutableTreeNode(CB_Mundo.getSelectedItem().toString());
-        nodoNombre = new DefaultMutableTreeNode (TF_Nombre.getText());
-        nodoMundo.add(nodoNombre);
-        raiz.add(nodoMundo);
-        modelo.reload();
-        
     }//GEN-LAST:event_JB_AgregarPActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -425,18 +622,129 @@ public class Menu extends javax.swing.JFrame {
         Agregar.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JB_AtrasListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_AtrasListadoActionPerformed
         Listar.setVisible(false);
         this.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_JB_AtrasListadoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-          this.setVisible(false);
+        this.setVisible(false);
         Listar.pack();
         Listar.setLocationRelativeTo(this);
         Listar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         Listar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseClicked
+
+    }//GEN-LAST:event_modificarMouseClicked
+
+    private void TF_EditDebilidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TF_EditDebilidad1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TF_EditDebilidad1ActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        Listar.setVisible(false);
+        JD_Modificar.pack();
+        JD_Modificar.setLocationRelativeTo(this);
+        JD_Modificar.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        JD_Modificar.setVisible(true);
+
+
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void PP_JtreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PP_JtreeMouseClicked
+
+    }//GEN-LAST:event_PP_JtreeMouseClicked
+
+    private void JB_AgregarPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregarPMouseClicked
+        try {
+            p = new Personajes(TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText())));
+            personaje.add(p);
+            DefaultTreeModel modelo = (DefaultTreeModel) JT_Personajes.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+           // DefaultMutableTreeNode nodoMundo;
+            DefaultMutableTreeNode nodoNombre;
+            // nodoPersonaje = new DefaultMutableTreeNode(new Personajes (TF_Nombre.getText(), CB_Mundo.getSelectedItem().toString(), TF_Poder.getText(), TF_Debilidad.getText(), (Integer.parseInt(TF_Fuerza.getText())), (Integer.parseInt(TF_Fisica.getText())), (Integer.parseInt(TF_Mental.getText())), (Integer.parseInt(TF_Vida.getText()))));
+            //nodoMundo = new DefaultMutableTreeNode(CB_Mundo.getSelectedItem().toString());
+             nodoNombre = new DefaultMutableTreeNode(p);
+            switch(CB_Mundo.getSelectedItem().toString()){
+                case "DC":
+                    ((DefaultMutableTreeNode)raiz.getChildAt(0)).add(nodoNombre);
+                    break;
+                case "Marvel":
+                    ((DefaultMutableTreeNode)raiz.getChildAt(1)).add(nodoNombre);
+                    break;
+                case "Capcom":
+                    ((DefaultMutableTreeNode)raiz.getChildAt(2)).add(nodoNombre);
+                case "MK":
+                    ((DefaultMutableTreeNode)raiz.getChildAt(3)).add(nodoNombre);
+                    break;
+            }
+           
+          //  nodoMundo.add(nodoNombre);
+           // raiz.add(nodoMundo);
+            modelo.reload();
+            TF_Debilidad.setText("");
+            TF_Fisica.setText("");
+            TF_Fuerza.setText("");
+            TF_Mental.setText("");
+            TF_Nombre.setText("");
+            TF_Vida.setText("");
+            TF_Poder.setText("");
+            JOptionPane.showMessageDialog(this, "Personaje agregado exitosamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_JB_AgregarPMouseClicked
+
+    private void JT_PersonajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_PersonajesMouseClicked
+        //   DefaultTreeModel modelo ;
+        //  nodo_seleccionado= (DefaultMutableTreeNode)  modelo.getLastSelectedPathComponent();
+        if (evt.getButton() == 3) {
+            int row = JT_Personajes.getClosestRowForLocation(evt.getX(), evt.getY());
+            JT_Personajes.setSelectionRow(row);
+            Object v1 = JT_Personajes.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Personajes) {
+                selectedPersonaje = (Personajes) nodo_seleccionado.getUserObject();
+                
+                PP_Jtree.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else {
+                DefaultListModel modelo = (DefaultListModel) jList1.getModel();
+            }
+        }
+
+
+    }//GEN-LAST:event_JT_PersonajesMouseClicked
+
+    private void JM_ListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_ListarActionPerformed
+        try {
+           if (nodo_seleccionado.getUserObject() instanceof Personajes) {
+            selectedPersonaje = (Personajes) nodo_seleccionado.getUserObject();
+            DefaultListModel m = (DefaultListModel) jList1.getModel();
+
+            JT_Nombree.setText(selectedPersonaje.getNombre());
+            m.addElement(selectedPersonaje.getPoder());
+            m.addElement(selectedPersonaje.getFuerza());
+            m.addElement(selectedPersonaje.getDebilidad());
+            m.addElement(selectedPersonaje.getAgilidadFisica());
+            m.addElement(selectedPersonaje.getAgilidadMental());
+            m.addElement(selectedPersonaje.getVida());
+            m.addElement(selectedPersonaje.getUniverso());
+            jList1.setModel(m);
+
+        } 
+        } catch (Exception e) {
+              e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_JM_ListarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+      
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -476,12 +784,26 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame Agregar;
+    private javax.swing.JComboBox<String> CB_EditMundo;
     private javax.swing.JComboBox<String> CB_Mundo;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JButton JB_AgregarP;
-    private javax.swing.JButton JB_Atras;
+    private javax.swing.JButton JB_AtrasListado;
+    private javax.swing.JButton JB_AtrasPersonaje;
+    private javax.swing.JDialog JD_Modificar;
+    private javax.swing.JMenuItem JM_Listar;
+    private javax.swing.JTextField JT_Nombree;
     private javax.swing.JTree JT_Personajes;
     private javax.swing.JFrame Listar;
+    private javax.swing.JPopupMenu PP_Jtree;
     private javax.swing.JTextField TF_Debilidad;
+    private javax.swing.JTextField TF_EditDebilidad1;
+    private javax.swing.JTextField TF_EditFisica;
+    private javax.swing.JTextField TF_EditFuerza;
+    private javax.swing.JTextField TF_EditMental;
+    private javax.swing.JTextField TF_EditNombre;
+    private javax.swing.JTextField TF_EditPoder1;
+    private javax.swing.JTextField TF_EditVida;
     private javax.swing.JTextField TF_Fisica;
     private javax.swing.JTextField TF_Fuerza;
     private javax.swing.JTextField TF_Mental;
@@ -491,23 +813,37 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JMenuItem modificar;
     // End of variables declaration//GEN-END:variables
+Personajes selectedPersonaje;
+
+    DefaultMutableTreeNode nodo_seleccionado;
+    Personajes p;
 }

@@ -92,7 +92,12 @@ public class Personajes {
 
     @Override
     public String toString() {
-        return  nombre+"\n" +"  Poder: " + poder + "\n  Debilidad: " + debilidad + "\n  Fuerza: " + fuerza + "\n  Agilidad Fisica: " + agilidadFisica + "\n  Agilidad Mental: " + agilidadMental + "\n  Vida:" + vida+"\n";
+        return nombre;
+    }
+    public String Stringnombre(){
+                return  nombre+"\n" +"  Poder: " + poder + "\n  Debilidad: " + debilidad + "\n  Fuerza: " + fuerza + "\n  Agilidad Fisica: " + agilidadFisica + "\n  Agilidad Mental: " + agilidadMental + "\n  Vida:" + vida+"\n";
+
+        
     }
     
     
